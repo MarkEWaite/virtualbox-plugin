@@ -4,6 +4,7 @@ import hudson.Extension;
 import hudson.Util;
 import hudson.model.Computer;
 import hudson.model.Descriptor;
+import hudson.model.Item;
 import hudson.model.Slave;
 import hudson.slaves.ComputerLauncher;
 import hudson.slaves.NodeProperty;
@@ -183,7 +184,7 @@ public class VirtualBoxSlave extends Slave {
      * @param HostName The name of the host to query virtual machine names from.
      * @return A ListBoxModel containing the virtual machine names.
      */
-    public ListBoxModel doFillVirtualMachineNameItems(String HostName) {
+    public ListBoxModel doFillVirtualMachineNameItems(Item item, String HostName) {
       if (Messages.VirtualBoxSlave_defaultHost().equals(HostName)) {
         LOG.log(Level.INFO, "Default host name selected - returning null virtual machine list");
         return null;
